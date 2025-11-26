@@ -3,17 +3,17 @@ prometheus.scrape "fastapi" {
     __address__ = "content-bot-8jnc.onrender.com:443",
     __scheme__  = "https",
   }]
+  forward_to = ["metrics_hosted_prometheus"]
 }
 
-// Send scraped metrics to Grafana Cloud
 prometheus.remote_write "metrics_hosted_prometheus" {
-  endpoint = {
-    name = "${GRAFANA_NAME}",
-    url  = "${GRAFANA_URL}",
+  endpoint {
+    name = "${GRAFANA_NAME}"
+    url  = "${GRAFANA_URL}"
 
-    basic_auth = {
-      username = "${GRAFANA_USERNAME}",
-      password = "${GRAFANA_PASSWORD}",
-    },
+    basic_auth {
+      username = "${GRAFANA_USERNAME}"
+      password = "${GRAFANA_PASSWORD}"
+    }
   }
 }
