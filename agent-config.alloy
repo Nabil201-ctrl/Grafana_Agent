@@ -3,7 +3,7 @@ prometheus.scrape "fastapi" {
     __address__ = "content-bot-8jnc.onrender.com:443",
     __scheme__  = "https",
   }]
-  forward_to = ["metrics_hosted_prometheus"]
+  forward_to = [prometheus.remote_write.metrics_hosted_prometheus]
 }
 
 prometheus.remote_write "metrics_hosted_prometheus" {
