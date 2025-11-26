@@ -16,6 +16,4 @@ prometheus.remote_write "metrics_hosted_prometheus" {
       password = "${GRAFANA_PASSWORD}",
     },
   }
-
-  forward_to = [prometheus.scrape.fastapi.receiver]
 }
