@@ -1,7 +1,7 @@
 prometheus.scrape "fastapi" {
   targets = [{
-    __address__ = "content-bot-8jnc.onrender.com:443"
-    __scheme__  = "https"
+    __address__ = "content-bot-8jnc.onrender.com:443",
+    __scheme__  = "https",
   }]
 }
 
